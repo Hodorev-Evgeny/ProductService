@@ -1,31 +1,40 @@
 package server
 
 import (
-	core_logger "ProductService/internal/core/logger"
 	"context"
 	"fmt"
 	"net"
 	"time"
 
+	core_logger "github.com/Hodorev-Evgeny/ProductService/internal/core/logger"
 	pb "github.com/Hodorev-Evgeny/inventory-system-api/api/product"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
 
-type OrderCase interface {
+type ProductCase interface {
+	CreateItem(
+		ctx context.Context,
+		product *pb.ProductRequest,
+	) (*pb.ProductResponse, error)
+
+	GetItemById(
+		ctx context.Context,
+		productID *pb.ProductID,
+	) (*pb.ProductResponse, error)
 }
 
 type Server struct {
 	pb.UnimplementedProductServiceServer
-	orderCase OrderCase
-	config    ServerConfig
+	productCase ProductCase
+	config      ServerConfig
 }
 
-func NewServer(config ServerConfig, ord OrderCase) *Server {
+func NewServer(config ServerConfig, ord ProductCase) *Server {
 	return &Server{
-		config:    config,
-		orderCase: ord,
+		config:      config,
+		productCase: ord,
 	}
 }
 

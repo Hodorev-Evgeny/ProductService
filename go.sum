@@ -1,5 +1,3 @@
-github.com/Hodorev-Evgeny/OrderService v0.0.0-20260608140516-98a377547ede h1:TFjY75c7FtRrgQrc+1If9gwEgCPPG+yBpcihX+bp4XI=
-github.com/Hodorev-Evgeny/OrderService v0.0.0-20260608140516-98a377547ede/go.mod h1:DB925zW+C8x+fieNBSuoZg3fSEQEgQYusXEPLY+QgVw=
 github.com/Hodorev-Evgeny/inventory-system-api v0.0.0-20260606205754-dcf45ab8e80c h1:fLmAytNnhpih0CJlY64OO10fQI4v3Ur64ihpLabb8N8=
 github.com/Hodorev-Evgeny/inventory-system-api v0.0.0-20260606205754-dcf45ab8e80c/go.mod h1:+KBpSWP11HdFuDgU101M4F8thPFvDbeN9p34qQrcaaM=
 github.com/cespare/xxhash/v2 v2.3.0 h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UFvs=

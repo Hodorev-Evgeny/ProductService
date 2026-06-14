@@ -1,13 +1,17 @@
 package main
 
 import (
-	core_logger "ProductService/internal/core/logger"
-	"ProductService/internal/core/transport/server"
 	"context"
 	"fmt"
 	"os/signal"
 	"syscall"
 
+	core_logger "github.com/Hodorev-Evgeny/ProductService/internal/core/logger"
+	core_pgx_pool "github.com/Hodorev-Evgeny/ProductService/internal/core/repository/postgres/pgx"
+	"github.com/Hodorev-Evgeny/ProductService/internal/core/transport/server"
+	feature_product_repository "github.com/Hodorev-Evgeny/ProductService/internal/feature/product/repository"
+	feature_product_service "github.com/Hodorev-Evgeny/ProductService/internal/feature/product/service"
+	feature_product_transport "github.com/Hodorev-Evgeny/ProductService/internal/feature/product/transport"
 	"go.uber.org/zap"
 )
 
@@ -26,15 +30,17 @@ func main() {
 	}
 	ctx = core_logger.ToContext(ctx, logger)
 
-	/*
-		configPool := core_pgx_pool.MustPostgresConfig()
-		pool := core_pgx_pool.CreatePoolMust(ctx, configPool)
-	*/
+	configPool := core_pgx_pool.MustPostgresConfig()
+	pool := core_pgx_pool.CreatePoolMust(ctx, configPool)
+
+	productRepository := feature_product_repository.NewProductRepository(pool)
+	productService := feature_product_service.NewProductService(productRepository)
+	productCase := feature_product_transport.NewProductFeatureCase(productService)
 
 	server_config := server.MustGetServerConfig()
 	server := server.NewServer(
 		server_config,
-		nil,
+		productCase,
 	)
 
 	logger.Info("Starting server")
