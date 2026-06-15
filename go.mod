@@ -3,7 +3,6 @@ module github.com/Hodorev-Evgeny/ProductService
 go 1.26
 
 require (
-	github.com/Hodorev-Evgeny/OrderService v0.0.0-20260608140516-98a377547ede
 	github.com/Hodorev-Evgeny/inventory-system-api v0.0.0-20260606205754-dcf45ab8e80c
 	github.com/jackc/pgx/v5 v5.10.0
 	github.com/kelseyhightower/envconfig v1.4.0

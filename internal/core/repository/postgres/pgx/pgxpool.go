@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	core_repository_pool "github.com/Hodorev-Evgeny/OrderService/internal/core/repository/postgres"
+	core_repository_pool "github.com/Hodorev-Evgeny/ProductService/internal/core/repository/postgres"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 

@@ -3,7 +3,7 @@ package core_pgx_pool
 import (
 	"errors"
 
-	core_repository_pool "github.com/Hodorev-Evgeny/OrderService/internal/core/repository/postgres"
+	core_repository_pool "github.com/Hodorev-Evgeny/ProductService/internal/core/repository/postgres"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgconn"
 )

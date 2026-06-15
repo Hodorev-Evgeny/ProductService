@@ -5,9 +5,9 @@ services:
     build:
       context: .
       dockerfile: cmd/productapp/Dockerfile
-    container_name: OrderServiceApp
+    container_name: ProductServiceApp
     ports:
-      - "50053:50053"
+      - "50051:50051"
     depends_on:
       - db-service-product
 
@@ -31,6 +31,6 @@ services:
   forwarder-port:
     image: alpine/socat:1.8.0.3
     container_name: product-service-postgres-forwarder-port
-    command: "tcp-listen:5432,fork,reuseaddr tcp-connect:db-service-order:5432"
+    command: "tcp-listen:5432,fork,reuseaddr tcp-connect:db-service-product:5432"
     ports:
       - "127.0.0.1:5432:5432"
