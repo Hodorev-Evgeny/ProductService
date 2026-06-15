@@ -23,6 +23,20 @@ type ProductCase interface {
 		ctx context.Context,
 		productID *pb.ProductID,
 	) (*pb.ProductResponse, error)
+
+	UpdatePrice(
+		ctx context.Context,
+		updateProduct *pb.UpdatePriceRequest,
+	) (*pb.ProductResponse, error)
+
+	GetAllItems(
+		ctx context.Context,
+	) (*pb.ListProduct, error)
+
+	Deactivate(
+		ctx context.Context,
+		id *pb.ProductID,
+	) (*pb.ProductResponse, error)
 }
 
 type Server struct {

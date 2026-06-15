@@ -17,6 +17,21 @@ type ProductService interface {
 		ctx context.Context,
 		productID int64,
 	) (core_domain.Product, error)
+
+	GetAllItems(
+		ctx context.Context,
+	) ([]core_domain.Product, error)
+
+	UpdatePrice(
+		ctx context.Context,
+		id int64,
+		price int64,
+	) (core_domain.Product, error)
+
+	Deactivate(
+		ctx context.Context,
+		id int64,
+	) (core_domain.Product, error)
 }
 
 type ProductFeatureCase struct {

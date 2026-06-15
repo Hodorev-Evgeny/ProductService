@@ -5,9 +5,9 @@ services:
     build:
       context: .
       dockerfile: cmd/productapp/Dockerfile
-    container_name: OrderServiceApp
+    container_name: ProductServiceApp
     ports:
-      - "50053:50053"
+      - "50051:50051"
     depends_on:
       - db-service-product
 
